@@ -1,0 +1,2284 @@
+<!doctype html>
+<html>
+	<head>
+		<title>
+			Neos - Accueil
+		</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="Niveau2.css">
+	</head>
+	
+	<body>
+		
+		<img src="bgJeux2.jpg" id=BG>
+
+			<audio id="OST" loop>
+				<source src="N2-T1.mp3" type="audio/mp3">
+				Échec, la balise audio n'est pas reconnue par votre navigateur
+			</audio> 
+
+			<audio id="AudioCoupEpée">
+				<source src="CoupEpée.mp3" type="audio/mp3" >
+			</audio>
+
+			<audio id="AudioCoupBouclier">
+				<source src="CoupBouclier.mp3" type="audio/mp3" >
+			</audio>
+
+			<audio id="AudioCoupPoing">
+				<source src="CoupPoing.mp3" type="audio/mp3" >
+			</audio>
+
+			<audio id="AudioCarte">
+				<source src="AudioCarte.mp3" type="audio/mp3" >
+			</audio>
+		
+			<div id=Bande>
+				<table>
+					<td id=Nom>
+						Neos
+					</td>
+					<td>
+						<img src="Coeur.png" width="5%" id=Coeur1>			
+						<img src="Coeur.png" width="5%" id=Coeur2> 				
+						<img src="Coeur.png" width="5%" id=Coeur3>
+						<img src="Coeur.png" width="5%" id=Coeur4>
+					</td>
+				</table>
+			</div>
+
+
+				<div id=c3 >
+					Niveau 2 - 1
+				</div>
+			
+				
+					<button id="button" onclick="SonOnOff()">
+						<img src="SonsOff.png" width="50px" id="SonOff"> 
+					</button>	
+
+				<div id="ChoixATK">
+					<h1>
+						Quelle est votre cible?
+					</h1>
+				</div>
+
+				<div id="ChoixDEF">
+					<h1>
+						Qu'elle cible pars-tu?
+					</h1>
+				</div>
+
+
+		<div>
+			<img src="Neos.png" width="15%" id=Neos>
+		</div>
+
+		<div id=buttons>
+			<img src="Ninja.png" width="20%" id=Monstre1>
+			<img src="Ninja2.png" width="20%" id=Monstre2>
+			<img src="DarkKnight.png" width="37%px" id=Monstre3>
+		</div>
+
+		<div id=CoeurMonstreB1>
+					<img src="Coeur.png" width="40px" id=Coeur1M> 
+					<img src="Coeur.png" width="40px" id=Coeur2M> 
+					<img src="Coeur.png" width="40px" id=Coeur3M> 
+		</div>
+
+		<div id=CoeurMonstre2B1>
+					<img src="Coeur.png" width="40px" id=Coeur1M2> 
+					<img src="Coeur.png" width="40px" id=Coeur2M2> 
+					<img src="Coeur.png" width="40px" id=Coeur3M2>
+		</div>
+
+		<div id=CoeurMonstre3B1>
+					<img src="Coeur.png" width="12%" id=Coeur1M3> 
+					<img src="Coeur.png" width="12%" id=Coeur2M3> 
+					<img src="Coeur.png" width="12%" id=Coeur3M3>
+					<img src="Coeur.png" width="12%" id=Coeur4M3> 
+		</div>
+
+		<div>
+			<img src="Legos.gif" width="15%" id=PluieLegos>
+			<img src="CoupEpée.gif" width="15%" id=CoupEpée>
+			<img src="Bouclier.png" width="9%" id=Bouclier>
+			<img src="CoupGriffe.gif" width="10%" id=Griffe>
+		</div>
+
+		<div>
+			
+			<img src="CarteDos.png" width="9%" id="carte1" onclick="Effet1()">
+			<img src="CarteDos.png" width="9%" id="carte2" onclick="Effet2()">
+			<img src="CarteDos.png" width="9%" id="carte3" onclick="Effet3()">
+		   
+		   	<img src="CarteDos.png" width="22%" id="GrosseCarte1">
+
+		   	<img src="CarteDos.png" width="22%" id="GrosseCarte2">
+
+		   	<img src="CarteDos.png" width="22%" id="GrosseCarte3">
+		</div>
+			
+			<img src="Reload.png" width="2%" id="Reload1" onclick="Reload1()">
+					
+			<img src="Reload.png" width="2%" id="Reload2" onclick="Reload2()">
+					
+			<img src="Reload.png" width="2%" id="Reload3" onclick="Reload3()">
+			
+
+			<img src="Flèche.png" width="3%" id="Choix1">
+			<img src="Flèche.png" width="3%" id="Choix2">
+			<img src="Flèche.png" width="3%" id="Choix3">
+
+			<div id="Validation">
+				<img src="Validé.png" width="50px" id="Oui"> 		
+				<img src="PasValidé.png" width="50px" id="Non"> 
+			</div>
+
+		<div>
+			<img src="carte 1 Click.jpg" width="9%" id="Carte1Click">
+			<img src="carte 2 Click.jpg" width="9%" id="Carte2Click">
+			<img src="carte 3 Click.jpg" width="9%" id="Carte3Click">
+			<img src="carte 4 Click.jpg" width="9%" id="Carte4Click">
+			<img src="carte 5 Click.jpg" width="9%" id="Carte5Click">
+		</div>
+		
+
+	<script>
+
+
+	var vie = 4;
+
+	var son = document.getElementById("OST");
+
+	var monstres = 3; 
+
+	var PVmonstre1 = 3;
+	var PVmonstre2 = 3;
+	var PVmonstre3 = 4;
+
+	var NV = 1;
+
+	var CoupCritique = 0;
+
+	var Raté = 0;
+
+	var carte1 = 1;
+	var carte2 = 2;
+	var carte3 = 3;
+
+
+	document.getElementById("carte1").onmouseover=function()
+	{
+
+			if (carte1==1)
+			{
+				document.getElementById("carte1").src="carte 1.jpg";
+				document.getElementById("GrosseCarte1").src="carte 1.jpg";
+				GrosseCarte1.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte1==2)
+			{
+				document.getElementById("carte1").src="carte 2.jpg";
+				document.getElementById("GrosseCarte1").src="carte 2.jpg";
+				GrosseCarte1.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte1==3)
+			{
+				document.getElementById("carte1").src="carte 3.jpg";
+				document.getElementById("GrosseCarte1").src="carte 3.jpg";
+				GrosseCarte1.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte1==4)
+			{
+				document.getElementById("carte1").src="carte 4.jpg";
+				document.getElementById("GrosseCarte1").src="carte 4.jpg";
+				GrosseCarte1.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte1==5)
+			{
+				document.getElementById("carte1").src="carte 5.jpg";
+				document.getElementById("GrosseCarte1").src="carte 5.jpg";
+				GrosseCarte1.setAttribute('style','z-index: 3'); 
+			}
+
+
+	}
+		
+
+	document.getElementById("carte1").onmouseout=function()
+	{
+		GrosseCarte1.setAttribute('style','z-index: -1');
+		document.getElementById("carte1").src="CarteDos.png";
+
+	}
+
+	document.getElementById("carte2").onmouseover=function()
+	{
+
+			if (carte2==1)
+			{
+				document.getElementById("carte2").src="carte 1.jpg";
+				document.getElementById("GrosseCarte2").src="carte 1.jpg";
+				GrosseCarte2.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte2==2)
+			{
+				document.getElementById("carte2").src="carte 2.jpg";
+				document.getElementById("GrosseCarte2").src="carte 2.jpg";
+				GrosseCarte2.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte2==3)
+			{
+				document.getElementById("carte2").src="carte 3.jpg";
+				document.getElementById("GrosseCarte2").src="carte 3.jpg";
+				GrosseCarte2.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte2==4)
+			{
+				document.getElementById("carte2").src="carte 4.jpg";
+				document.getElementById("GrosseCarte2").src="carte 4.jpg";
+				GrosseCarte2.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte2==5)
+			{
+				document.getElementById("carte2").src="carte 5.jpg";
+				document.getElementById("GrosseCarte2").src="carte 5.jpg";
+				GrosseCarte2.setAttribute('style','z-index: 3'); 
+			}
+
+	}
+
+	document.getElementById("carte2").onmouseout=function()
+	{
+		GrosseCarte2.setAttribute('style','z-index: -1');
+		document.getElementById("carte2").src="CarteDos.png";
+		
+
+	}
+
+	document.getElementById("carte3").onmouseover=function()
+	{
+
+		if (carte3==1)
+			{
+				document.getElementById("carte3").src="carte 1.jpg";
+				document.getElementById("GrosseCarte3").src="carte 1.jpg";
+				GrosseCarte3.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte3==2)
+			{
+				document.getElementById("carte3").src="carte 2.jpg";
+				document.getElementById("GrosseCarte3").src="carte 2.jpg";
+				GrosseCarte3.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte3==3)
+			{
+				document.getElementById("carte3").src="carte 3.jpg";
+				document.getElementById("GrosseCarte3").src="carte 3.jpg";
+				GrosseCarte3.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte3==4)
+			{
+				document.getElementById("carte3").src="carte 4.jpg";
+				document.getElementById("GrosseCarte3").src="carte 4.jpg";
+				GrosseCarte3.setAttribute('style','z-index: 3'); 
+			}
+
+			else if (carte3==5)
+			{
+				document.getElementById("carte3").src="carte 5.jpg";
+				document.getElementById("GrosseCarte3").src="carte 5.jpg";
+				GrosseCarte3.setAttribute('style','z-index: 3'); 
+			}
+
+
+	}
+
+	document.getElementById("carte3").onmouseout=function()
+	{
+		GrosseCarte3.setAttribute('style','z-index: -1');
+		document.getElementById("carte3").src="CarteDos.png";
+
+	}
+
+	function Reload1()
+	{
+		carte1 = Math.floor(Math.random()*5)+1;	
+	}
+
+	function Reload2()
+	{
+		carte2 = Math.floor(Math.random()*5)+1;	
+	}
+		
+	function Reload3()
+	{
+		carte3 = Math.floor(Math.random()*5)+1;	
+	}
+
+
+	function SonOnOff()
+	{			
+			if (son.paused)
+				{
+					document.getElementById("SonOff").src="Sons.png";
+					son.play();
+					son.volume=0.45; 
+				}
+
+			else 
+				{
+					document.getElementById("SonOff").src="SonsOff.png";
+ 					son.pause();
+ 					son.volume=0.45;
+				}			
+	}
+		
+
+		function Effet1()
+    {
+     	if (carte1==1)
+			{
+				Choix1.setAttribute('style','z-index : 3');
+				Carte1Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 33%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixBonbon(Bonbon)
+				{
+					var target = Bonbon.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix1.setAttribute('style','z-index : -1');
+		     			Carte1Click.setAttribute('style','z-index : -1');
+    					CarteBonbon();
+    					ValidationInvisible();
+    					carte1 = Math.floor(Math.random()*5)+1;
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBonbon,
+						    					
+						false);
+
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix1.setAttribute('style','z-index : -1');
+		     			Carte1Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBonbon,
+						    					
+						false);
+		    		}
+
+				})
+				
+				false;
+
+
+
+			}
+
+		else if (carte1==2)
+			{	
+				Choix1.setAttribute('style','z-index : 3');
+				Carte2Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 33%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixEpée(Epée)
+				{
+					var target = Epée.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte2Click.setAttribute('style','z-index : -1');
+    					CarteEpée();
+    					ValidationInvisible();
+    					carte1 = Math.floor(Math.random()*5)+1;
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixEpée,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte2Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixEpée,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+		  	  			
+		else if (carte1==3)
+			{
+				Choix1.setAttribute('style','z-index : 3');
+				Carte3Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 33%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixLegos(Legos)
+				{
+					var target = Legos.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte3Click.setAttribute('style','z-index : -1');
+    					CartePluieDeLegos();
+    					ValidationInvisible();
+    					carte1 = Math.floor(Math.random()*5)+1;
+    					Legos.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixLegos,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte3Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Legos.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixLegos,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}		
+
+		else if (carte1==4)
+			{
+				Choix1.setAttribute('style','z-index : 3');
+				Carte4Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 33%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixChocolat(Chocolat)
+				{
+					var target = Chocolat.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte4Click.setAttribute('style','z-index : -1');
+    					CarteChocolat();
+    					ValidationInvisible();
+    					carte1 = Math.floor(Math.random()*5)+1;
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixChocolat,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte4Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixChocolat,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+
+			else if (carte1==5)
+			{
+				Choix1.setAttribute('style','z-index : 3');
+				Carte5Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 33%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixBouclier(Bouclier)
+				{
+					var target = Bouclier.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte5Click.setAttribute('style','z-index : -1');
+    					CarteBouclier();
+    					ValidationInvisible();
+    					carte1 = Math.floor(Math.random()*5)+1;
+    					Bouclier.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBouclier,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix1.setAttribute('style','z-index : -1');
+						Carte5Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Bouclier.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBouclier,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}		
+				
+		
+
+	}
+
+	
+		function Effet2()
+    	{
+
+			if (carte2==1)
+				{
+				Choix2.setAttribute('style','z-index : 3');
+				Carte1Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 43%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixBonbon(Bonbon)
+				{
+					var target = Bonbon.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte1Click.setAttribute('style','z-index : -1');
+    					CarteBonbon();
+    					ValidationInvisible();
+    					carte2 = Math.floor(Math.random()*5)+1;
+    					Bonbon.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBonbon,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte1Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Bonbon.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBonbon,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+
+			else if (carte2==2)
+				{
+				Choix2.setAttribute('style','z-index : 3');
+				Carte2Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 43%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixEpée(Epée)
+				{
+					var target = Epée.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte2Click.setAttribute('style','z-index : -1');
+    					CarteEpée();
+    					ValidationInvisible();
+    					carte2 = Math.floor(Math.random()*5)+1;
+    					Epée.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixEpée,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte2Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Epée.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixEpée,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+
+		    else if (carte2==3)
+				{
+				Choix2.setAttribute('style','z-index : 3');
+				Carte3Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 43%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixLegos(Legos)
+				{
+					var target = Legos.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte3Click.setAttribute('style','z-index : -1');
+    					CartePluieDeLegos();
+    					ValidationInvisible();
+    					carte2 = Math.floor(Math.random()*5)+1;
+    					Legos.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixLegos,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte3Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Legos.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixLegos,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}		
+
+			
+			else if (carte2==4)
+				{
+				Choix2.setAttribute('style','z-index : 3');
+				Carte4Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 43%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixChocolat(Chocolat)
+				{
+					var target = Chocolat.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte4Click.setAttribute('style','z-index : -1');
+    					CarteChocolat();
+    					ValidationInvisible();
+    					carte2 = Math.floor(Math.random()*5)+1;
+    					Chocolat.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixChocolat,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte4Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Chocolat.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixChocolat,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+
+			else if (carte2==5)
+			{
+				Choix2.setAttribute('style','z-index : 3');
+				Carte5Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 43%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixBouclier(Bouclier)
+				{
+					var target = Bouclier.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte5Click.setAttribute('style','z-index : -1');
+    					CarteBouclier();
+    					ValidationInvisible();
+    					carte1 = Math.floor(Math.random()*5)+1;
+    					Bouclier.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBouclier,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix2.setAttribute('style','z-index : -1');
+						Carte5Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Bouclier.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBouclier,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}		
+
+		}
+
+		function Effet3()
+		{
+
+			if (carte3==1)
+				{
+				Choix3.setAttribute('style','z-index : 3');
+				Carte1Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 53%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixBonbon(Bonbon)
+				{
+					var target = Bonbon.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte1Click.setAttribute('style','z-index : -1');
+    					CarteBonbon();
+    					ValidationInvisible();
+    					carte3 = Math.floor(Math.random()*5)+1;
+    					Bonbon.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBonbon,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+    				{	
+    					Choix3.setAttribute('style','z-index : -1');
+						Carte1Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Bonbon.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBonbon,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+
+			else if (carte3==2)
+				{
+				Choix3.setAttribute('style','z-index : 3');
+				Carte2Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 53%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixEpée(Epée)
+				{
+					var target = Epée.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte2Click.setAttribute('style','z-index : -1');
+    					CarteEpée();
+    					ValidationInvisible();
+    					carte3 = Math.floor(Math.random()*5)+1;
+    					Epée.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixEpée,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte2Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Epée.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixEpée,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+
+		    else if (carte3==3)
+				{
+				Choix3.setAttribute('style','z-index : 3');
+				Carte3Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 53%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixLegos(Legos)
+				{
+					var target = Legos.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte3Click.setAttribute('style','z-index : -1');
+    					CartePluieDeLegos();
+    					ValidationInvisible();
+    					carte3 = Math.floor(Math.random()*5)+1;
+    					Legos.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixLegos,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte3Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Legos.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixLegos,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}	
+
+			else if (carte3==4)
+				{
+				Choix3.setAttribute('style','z-index : 3');
+				Carte4Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 53%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixChocolat(Chocolat)
+				{
+					var target = Chocolat.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte4Click.setAttribute('style','z-index : -1');
+    					CarteChocolat();
+    					ValidationInvisible();
+    					carte3 = Math.floor(Math.random()*5)+1;
+    					Chocolat.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixChocolat,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte4Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Chocolat.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixChocolat,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}
+
+			else if (carte3==5)
+			{
+				Choix3.setAttribute('style','z-index : 3');
+				Carte5Click.setAttribute('style','z-index : 3 ; top: 68% ; left: 53%;');
+				ValidationVisible();
+				CarteInvisible();
+		  		ReloadInvisble();
+				document.getElementById("Validation").addEventListener("click", function ChoixBouclier(Bouclier)
+				{
+					var target = Bouclier.target;
+
+					if (target.id === "Oui")
+		     		{
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte5Click.setAttribute('style','z-index : -1');
+    					CarteBouclier();
+    					ValidationInvisible();
+    					carte1 = Math.floor(Math.random()*5)+1;
+    					Bouclier.stopPropagation();
+
+    					document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBouclier,
+						    					
+						false);
+    				}
+
+    				if (target.id === "Non")
+		     		{	
+		     			Choix3.setAttribute('style','z-index : -1');
+						Carte5Click.setAttribute('style','z-index : -1');
+		     			CarteVisible();
+				   		ReloadVisible();
+				   		ValidationInvisible();
+				   		Bouclier.stopPropagation();
+
+				   		document.getElementById("Validation").removeEventListener("click",
+												
+						ChoixBouclier,
+						    					
+						false);
+		    		}
+				})
+				
+				false;
+			}		
+
+				
+				
+		}
+
+	
+
+	function PV()
+	{   
+		if (vie>=4) 
+		{
+		   vie=4;
+		   document.getElementById("Coeur4").src="Coeur.png";
+		   document.getElementById("Coeur3").src="Coeur.png";
+		   document.getElementById("Coeur2").src="Coeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==3.75) 
+		{
+		   document.getElementById("Coeur4").src="1QuartCoeur.png";
+		   document.getElementById("Coeur3").src="Coeur.png";
+		   document.getElementById("Coeur2").src="Coeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==3.5) 
+		{
+		   document.getElementById("Coeur4").src="MoitiéCoeur.png";
+		   document.getElementById("Coeur3").src="Coeur.png";
+		   document.getElementById("Coeur2").src="Coeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==3) 
+		{
+		   document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="Coeur.png";
+		   document.getElementById("Coeur2").src="Coeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==2.75) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+			document.getElementById("Coeur3").src="1QuartCoeur.png";
+			document.getElementById("Coeur2").src="Coeur.png";	
+		    document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==2.5) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+			document.getElementById("Coeur3").src="MoitiéCoeur.png";
+			document.getElementById("Coeur2").src="Coeur.png";	
+		    document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==2.25) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+			document.getElementById("Coeur3").src="3QuartCoeur.png";
+			document.getElementById("Coeur2").src="Coeur.png";	
+		    document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==2) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="Coeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==1.75) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="1QuartCoeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";
+		}
+
+		else if (vie==1.5) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="MoitiéCoeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";
+		}
+
+		else if (vie==1.25) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="3QuartCoeur.png";	
+		   document.getElementById("Coeur1").src="Coeur.png";
+		}
+
+		else if (vie==1) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="CoeurVide.png";
+		   document.getElementById("Coeur1").src="Coeur.png";	
+		}
+
+		else if (vie==0.75) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="CoeurVide.png";
+		   document.getElementById("Coeur1").src="1QuartCoeur.png";	
+		}
+
+		else if (vie==0.5) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="CoeurVide.png";
+		   document.getElementById("Coeur1").src="MoitiéCoeur.png";	
+		}
+
+		else if (vie==0.25) 
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="CoeurVide.png";
+		   document.getElementById("Coeur1").src="3QuartCoeur.png";	
+		}
+
+		else if (vie>=0)
+		{
+			 document.getElementById("Coeur4").src="CoeurVide.png";
+		   document.getElementById("Coeur3").src="CoeurVide.png";
+		   document.getElementById("Coeur2").src="CoeurVide.png";
+		   document.getElementById("Coeur1").src="CoeurVide.png";
+		   //Joué un sons//	
+		   alert("Vous avez perdu, jeu fini");
+		   document.location.href="acceuil.html"
+		}
+	}
+
+	
+	function PVM1()
+	{ 
+		if (PVmonstre1==3) 
+		{
+		   document.getElementById("Coeur3M").src="Coeur.png";
+		   document.getElementById("Coeur2M").src="Coeur.png";	
+		   document.getElementById("Coeur1M").src="Coeur.png";	
+		}
+
+		else if (PVmonstre1==2.5) 
+		{
+			document.getElementById("Coeur3M").src="MoitiéCoeur.png";
+			document.getElementById("Coeur2M").src="Coeur.png";	
+		    document.getElementById("Coeur1M").src="Coeur.png";	
+		}
+
+		else if (PVmonstre1==2) 
+		{
+		   document.getElementById("Coeur3M").src="CoeurVide.png";
+		   document.getElementById("Coeur2M").src="Coeur.png";	
+		   document.getElementById("Coeur1M").src="Coeur.png";	
+		}
+
+		else if (PVmonstre1==1.5) 
+		{
+		   document.getElementById("Coeur3M").src="CoeurVide.png";
+		   document.getElementById("Coeur2M").src="MoitiéCoeur.png";	
+		   document.getElementById("Coeur1M").src="Coeur.png";
+		}
+
+		else if (PVmonstre1==1) 
+		{
+		   document.getElementById("Coeur3M").src="CoeurVide.png";
+		   document.getElementById("Coeur2M").src="CoeurVide.png";
+		   document.getElementById("Coeur1M").src="Coeur.png";	
+		}
+
+		else if (PVmonstre1==0.5) 
+		{
+		   document.getElementById("Coeur3M").src="CoeurVide.png";
+		   document.getElementById("Coeur2M").src="CoeurVide.png";
+		   document.getElementById("Coeur1M").src="MoitiéCoeur.png";	
+		}
+
+		else if (PVmonstre1 <= 0)
+		{
+		   document.getElementById("Coeur3M").src="CoeurVide.png";
+		   document.getElementById("Coeur2M").src="CoeurVide.png";
+		   document.getElementById("Coeur1M").src="CoeurVide.png";
+		   
+		   document.getElementById("Monstre1").src="Tombe.png";
+		   Monstre1.setAttribute('style','width : 10% ; top : 50%');
+
+		   CoeurMonstreB1.setAttribute('style',' position : absolute ; z-index: -1');
+		   		   
+		   monstres = monstres - 1;
+		   
+		   NT2();
+		}
+	}
+
+	function PVM2()
+	{ 
+		if (PVmonstre2==3) 
+		{
+		   document.getElementById("Coeur3M2").src="Coeur.png";
+		   document.getElementById("Coeur2M2").src="Coeur.png";	
+		   document.getElementById("Coeur1M2").src="Coeur.png";	
+		}
+
+		else if (PVmonstre2==2.5) 
+		{
+			document.getElementById("Coeur3M2").src="MoitiéCoeur.png";
+			document.getElementById("Coeur2M2").src="Coeur.png";	
+		    document.getElementById("Coeur1M2").src="Coeur.png";	
+		}
+
+		else if (PVmonstre2==2) 
+		{
+		   document.getElementById("Coeur3M2").src="CoeurVide.png";
+		   document.getElementById("Coeur2M2").src="Coeur.png";	
+		   document.getElementById("Coeur1M2").src="Coeur.png";	
+		}
+
+		else if (PVmonstre2==1.5) 
+		{
+		   document.getElementById("Coeur3M2").src="CoeurVide.png";
+		   document.getElementById("Coeur2M2").src="MoitiéCoeur.png";	
+		   document.getElementById("Coeur1M2").src="Coeur.png";
+		}
+
+		else if (PVmonstre2==1) 
+		{
+		   document.getElementById("Coeur3M2").src="CoeurVide.png";
+		   document.getElementById("Coeur2M2").src="CoeurVide.png";
+		   document.getElementById("Coeur1M2").src="Coeur.png";	
+		}
+
+		else if (PVmonstre2==0.5) 
+		{
+		   document.getElementById("Coeur3M2").src="CoeurVide.png";
+		   document.getElementById("Coeur2M2").src="CoeurVide.png";
+		   document.getElementById("Coeur1M2").src="MoitiéCoeur.png";	
+		}
+
+		else if (PVmonstre2 <= 0)
+		{
+		   document.getElementById("Coeur3M2").src="CoeurVide.png";
+		   document.getElementById("Coeur2M2").src="CoeurVide.png";
+		   document.getElementById("Coeur1M2").src="CoeurVide.png";
+
+		   document.getElementById("Monstre2").src="Tombe.png";
+		   Monstre2.setAttribute('style','width : 10% ; top : 57%');
+
+		   CoeurMonstre2B1.setAttribute('style',' position : absolute ; z-index: -1');
+		   		   
+		   monstres = monstres - 1;
+		  
+		   NT2();
+		   
+		}
+	}
+
+	function PVM3()
+	{ 	
+		if (PVmonstre3==4) 
+		{
+		   document.getElementById("Coeur4M3").src="Coeur.png";
+		   document.getElementById("Coeur3M3").src="Coeur.png";
+		   document.getElementById("Coeur2M3").src="Coeur.png";	
+		   document.getElementById("Coeur1M3").src="Coeur.png";	
+		}
+
+		if (PVmonstre3==3.5) 
+		{
+		   document.getElementById("Coeur4M3").src="MoitiéCoeur.png";
+		   document.getElementById("Coeur3M3").src="Coeur.png";
+		   document.getElementById("Coeur2M3").src="Coeur.png";	
+		   document.getElementById("Coeur1M3").src="Coeur.png";	
+		}
+
+		if (PVmonstre3==3) 
+		{
+		   document.getElementById("Coeur4M3").src="CoeurVide.png";
+		   document.getElementById("Coeur3M3").src="Coeur.png";
+		   document.getElementById("Coeur2M3").src="Coeur.png";	
+		   document.getElementById("Coeur1M3").src="Coeur.png";	
+		}
+
+		else if (PVmonstre3==2.5) 
+		{
+			document.getElementById("Coeur4M3").src="CoeurVide.png";
+			document.getElementById("Coeur3M3").src="MoitiéCoeur.png";
+			document.getElementById("Coeur2M3").src="Coeur.png";	
+		    document.getElementById("Coeur1M3").src="Coeur.png";	
+		}
+
+		else if (PVmonstre3==2) 
+		{
+		   document.getElementById("Coeur4M3").src="CoeurVide.png";
+		   document.getElementById("Coeur3M3").src="CoeurVide.png";
+		   document.getElementById("Coeur2M3").src="Coeur.png";	
+		   document.getElementById("Coeur1M3").src="Coeur.png";	
+		}
+
+		else if (PVmonstre3==1.5) 
+		{
+		   document.getElementById("Coeur4M3").src="CoeurVide.png";
+		   document.getElementById("Coeur3M3").src="CoeurVide.png";
+		   document.getElementById("Coeur2M3").src="MoitiéCoeur.png";	
+		   document.getElementById("Coeur1M3").src="Coeur.png";
+		}
+
+		else if (PVmonstre3==1) 
+		{
+		   document.getElementById("Coeur4M3").src="CoeurVide.png";
+		   document.getElementById("Coeur3M3").src="CoeurVide.png";
+		   document.getElementById("Coeur2M3").src="CoeurVide.png";
+		   document.getElementById("Coeur1M3").src="Coeur.png";	
+		}
+
+		else if (PVmonstre3==0.5) 
+		{
+		   document.getElementById("Coeur4M3").src="CoeurVide.png";	
+		   document.getElementById("Coeur3M3").src="CoeurVide.png";
+		   document.getElementById("Coeur2M3").src="CoeurVide.png";
+		   document.getElementById("Coeur1M3").src="MoitiéCoeur.png";	
+		}
+
+		else if (PVmonstre3 <= 0)
+		{
+		   document.getElementById("Coeur4M3").src="CoeurVide.png";	
+		   document.getElementById("Coeur3M3").src="CoeurVide.png";
+		   document.getElementById("Coeur2M3").src="CoeurVide.png";
+		   document.getElementById("Coeur1M3").src="CoeurVide.png";
+
+		   document.location.href="Niveau3.html";
+		}
+	}
+
+
+	function NT2()
+	{
+		if (NV ==1 && monstres == 1)
+		{
+			document.getElementById("OST").src="N2-T2.mp3"; 
+			son.play();
+			document.getElementById("SonOff").src="Sons.png";
+			Monstre1.setAttribute('style','z-index: -1');
+			Monstre2.setAttribute('style','z-index: -1');
+			Monstre3.setAttribute('style','z-index: 2');
+			CoeurMonstre3B1.setAttribute('style','z-index: 3');
+
+			document.getElementById("c3").innerHTML = "Niveau 2 - 2";
+		}
+	}
+
+
+	function TourMonstre1()
+	{	
+		var audio = document.getElementById("AudioCoupPoing");
+
+		Griffe.setAttribute('style','z-index:3 ; top :50% ; left :17%');
+		audio.volume=0.25;
+		audio.play();
+		
+		vie = vie - 0.50 ;
+		PV();
+	}
+
+	function MoveMonstre1Up()
+	{
+		Monstre1.setAttribute('style','transform: translateX(-40px);');
+		CoeurMonstreB1.setAttribute('style','transform: translateX(-40px);');
+
+	}
+
+	function MoveMonstre1Down()
+	{
+		Animation();
+		Monstre1.setAttribute('style','transform: translateX(40px);');
+		CoeurMonstreB1.setAttribute('style','transform: translateX(+40px);');
+		Bouclier.setAttribute('style','z-index : -1');	
+	}
+
+
+	function TourMonstre2()
+	{	
+		var audio = document.getElementById("AudioCoupPoing");
+
+		Griffe.setAttribute('style','z-index:3 ; top :50% ; left :17%');
+		audio.volume=0.25;
+		audio.play();
+
+		vie = vie - 0.50 ;
+		PV();
+	}
+
+	function MoveMonstre2Up()
+	{
+		Monstre2.setAttribute('style','transform: translateX(-40px);');
+		CoeurMonstre2B1.setAttribute('style','transform: translateX(-40px);');	
+	}
+
+	function MoveMonstre2Down()
+	{
+		Animation();
+		Monstre2.setAttribute('style','transform: translateX(40px);');
+		CoeurMonstre2B1.setAttribute('style','transform: translateX(40px);');
+		Bouclier.setAttribute('style','z-index : -1');	
+	}
+
+	function TourMonstre3()
+	{
+		var audio = document.getElementById("AudioCoupPoing");
+
+		Griffe.setAttribute('style','z-index: 3 ; top :50% ; left :17%');
+		audio.volume=0.25;
+		audio.play();
+
+		vie = vie - 1 ;
+		PV();
+
+	}
+
+	function MoveMonstre3Up()
+	{
+		Monstre3.setAttribute('style','transform: translateX(-20px) ; z-index: 3 ; transform: translateZ(-20px);');	
+	}
+
+		function MoveMonstre3Down()
+	{
+		Animation();
+		Monstre3.setAttribute('style','transform: translateX(20px); z-index: 3 ; transform: translateZ(-20px);');	
+		Bouclier.setAttribute('style','z-index : -1');	
+	}
+
+
+
+
+	function CarteBonbon()
+	{
+		if (monstres == 3)
+	  	{
+			if (vie<4)
+			{
+				vie = vie + 1;
+				PV();
+
+				setTimeout(MoveMonstre1Up, 500);
+
+				setTimeout(TourMonstre1, 750);
+
+				setTimeout(MoveMonstre1Down, 1000);
+						    					
+				setTimeout(MoveMonstre2Up, 1250);
+
+				setTimeout(TourMonstre2, 1500);
+
+				setTimeout(MoveMonstre2Down, 1750);
+
+				setTimeout(CarteVisible, 2000);
+				setTimeout(ReloadVisible, 2000);
+									
+			}
+
+			else 
+			{
+				CarteVisible();
+				ReloadVisible();
+			}
+		 }
+
+		if ((monstres == 2) && (PVmonstre1 <= 0)) 
+		{
+			if (vie<4)
+			{
+				vie = vie + 1;
+				PV();
+
+				setTimeout(MoveMonstre2Up, 500);
+
+				setTimeout(TourMonstre2, 750);
+
+				setTimeout(MoveMonstre2Down, 1000);
+
+				setTimeout(CarteVisible, 2000);
+				setTimeout(ReloadVisible, 2000);
+			}	
+
+			else 
+			{
+				CarteVisible();
+			    ReloadVisible();
+			}
+		}
+
+		
+		if ((monstres == 2) && (PVmonstre2 <= 0)) 
+		{
+			if (vie<4)
+			{
+				vie = vie + 1;
+				PV();
+
+				setTimeout(MoveMonstre1Up, 500);
+
+				setTimeout(TourMonstre1, 750);
+
+				setTimeout(MoveMonstre1Down, 1000);
+
+				setTimeout(CarteVisible, 2000);
+				setTimeout(ReloadVisible, 2000);
+			}
+
+			else 
+			{
+				CarteVisible();
+			    ReloadVisible();
+			}	
+		}
+
+		 if (monstres == 1)
+			{
+				if (vie<4)
+				{
+					vie = vie + 1;
+					PV();
+
+					setTimeout(MoveMonstre3Up, 500);
+
+					setTimeout(TourMonstre3, 750);
+
+					setTimeout(MoveMonstre3Down, 1000);
+					
+					CarteVisible();
+					ReloadVisible();
+				}
+						   		
+				else 
+				{
+					CarteVisible();
+					ReloadVisible();
+				}
+		} 
+
+
+	}
+	
+
+	function CarteEpée()
+
+				{
+		     		ChoixATK.setAttribute('style','z-index: 0');
+		     		document.getElementById("buttons").addEventListener("click", function JouerEpée(DégatEpée)
+		     		{
+
+		     				var audio = document.getElementById("AudioCoupEpée");
+						    audio.volume=0.30;
+
+								if (monstres == 3)
+									{
+						    		
+						    			var target = DégatEpée.target;
+						    			
+						    			 if (target.id === "Monstre1")
+						     				{
+						     					PVmonstre1 = PVmonstre1 - 0.5;
+												PVM1();
+
+												if (PVmonstre1 > 0)
+						     					{
+													CoupEpée.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+													audio.play();
+						    						ChoixATK.setAttribute('style','z-index: -1');
+
+						    						setTimeout(MoveMonstre1Up, 500);
+
+						    						setTimeout(TourMonstre1, 750);
+
+						    						setTimeout(MoveMonstre1Down, 1000);
+						    					
+						    						setTimeout(MoveMonstre2Up, 1250);
+
+						    						setTimeout(TourMonstre2, 1500);
+
+						    						setTimeout(MoveMonstre2Down, 1750);
+
+						   							DégatEpée.stopPropagation();
+						   						}
+
+						   						else if (PVmonstre1 <= 0)
+						   						{
+						   							CoupEpée.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+													audio.play();
+						    						ChoixATK.setAttribute('style','z-index: -1');
+
+						   							setTimeout(MoveMonstre2Up, 500);
+
+						    						setTimeout(TourMonstre2, 750);
+
+						    						setTimeout(MoveMonstre2Down, 1000);
+
+						    						DégatEpée.stopPropagation();
+						   						}
+						   							
+						    				}
+
+						    			else if (target.id === "Monstre2")
+						     				{	
+						     					PVmonstre2 = PVmonstre2 - 0.5;
+												PVM2();
+
+												if (PVmonstre2 > 0)
+						     					{
+													CoupEpée.setAttribute('style','z-index:4 ; top: 36% ; left: 75%');
+													audio.play();
+						    						ChoixATK.setAttribute('style','z-index: -1');
+
+						    						setTimeout(MoveMonstre2Up, 500);
+
+						    						setTimeout(TourMonstre2, 750);
+
+						    						setTimeout(MoveMonstre2Down, 1000);
+						    					
+						    						setTimeout(MoveMonstre1Up, 1250);
+
+						    						setTimeout(TourMonstre1, 1500);
+
+						    						setTimeout(MoveMonstre1Down, 1750);
+
+						    						DégatEpée.stopPropagation();
+						    					}
+
+						    					else if (PVmonstre2 <= 0)
+						   						{
+						   							CoupEpée.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+													audio.play();
+						    						ChoixATK.setAttribute('style','z-index: -1');
+
+						   							setTimeout(MoveMonstre1Up, 500);
+
+						    						setTimeout(TourMonstre1, 750);
+
+						    						setTimeout(MoveMonstre1Down, 1000);
+
+						    						DégatEpée.stopPropagation();
+						   						}
+
+						    					
+						    				}
+
+				    				}		
+
+						    	else if ((monstres == 2) && (PVmonstre1 <= 0)) 
+						    		{
+						    			
+						    			CoupEpée.setAttribute('style','z-index:4 ; top: 36% ; left: 75%');
+						    			audio.play();
+						    			ChoixATK.setAttribute('style','z-index: -1');	
+						     			PVmonstre2 = PVmonstre2 - 0.5;
+										PVM2();
+
+										if (PVmonstre2 > 0)
+						     				{
+						    					setTimeout(MoveMonstre2Up, 500);
+
+						    					setTimeout(TourMonstre2, 750);
+
+						    					setTimeout(MoveMonstre2Down, 1000);
+
+						    					DégatEpée.stopPropagation();
+						    				}
+
+						    			else if (PVmonstre2 <= 0)
+						   					{
+						   						DégatEpée.stopPropagation();
+						    				}
+
+
+	
+
+						    				
+						    		}
+
+						    	else if ((monstres == 2) && (PVmonstre2 <= 0)) 
+						    		{
+						    		
+						    			CoupEpée.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+						    			audio.play();
+						    			ChoixATK.setAttribute('style','z-index: -1');
+						     			PVmonstre1 = PVmonstre1 - 0.5;
+										PVM1();
+
+										if (PVmonstre2 > 0)
+						     				{
+						    					setTimeout(MoveMonstre1Up, 500);
+
+						    					setTimeout(TourMonstre1, 750);
+
+						    					setTimeout(MoveMonstre1Down, 1000);
+
+						    					DégatEpée.stopPropagation();
+						    				}
+						    			else if (PVmonstre2 <= 0)
+						    			{
+						    				DégatEpée.stopPropagation();
+						    			}
+
+						    					
+						    		}
+
+						    	else if (monstres == 1) 
+						    		{
+						    
+						    			ChoixATK.setAttribute('style','z-index: -1');
+						    			CoupEpée.setAttribute('style','z-index:4 ; width :40% ; top: 5% ; left: 50%');
+						    			audio.play();
+						      			PVmonstre3 = PVmonstre3 - 0.5;
+										PVM3();
+
+
+						    			setTimeout(MoveMonstre3Up, 500);
+
+										setTimeout(TourMonstre3, 750);
+
+										setTimeout(MoveMonstre3Down, 1000);
+
+						    			DégatEpée.stopPropagation();
+
+		
+						    		}
+
+						    		document.getElementById("buttons").removeEventListener("click",
+												
+									JouerEpée,
+						    			
+									false);
+
+						    		
+						    		setTimeout(CarteVisible, 2000);
+						    		setTimeout(ReloadVisible, 2000);
+									ValidationInvisible();
+
+									setTimeout(Animation, 500);
+					})
+
+					false;
+
+					
+
+				} 
+
+					
+
+
+
+	
+		function CartePluieDeLegos(Legos)
+	{
+		ChoixATK.setAttribute('style','z-index: 0');
+		document.getElementById("buttons").addEventListener("click", function JouerLegos(DégatLegos)
+		    {
+				if (monstres==3)
+							{
+				    			
+				    			var target = DégatLegos.target;
+
+				    			 if (target.id === "Monstre1")
+				     				{
+										PVmonstre1 = PVmonstre1 - 1;
+										PVM1();
+
+										if (PVmonstre1 > 0)
+						     			{
+											PluieLegos.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+				    						ChoixATK.setAttribute('style','z-index: -1');
+
+				    						setTimeout(MoveMonstre1Up, 500);
+
+						    				setTimeout(TourMonstre1, 750);
+
+						    				setTimeout(MoveMonstre1Down, 1000);
+						    					
+						    				setTimeout(MoveMonstre2Up, 1250);
+
+						    				setTimeout(TourMonstre2, 1500);
+
+						    				setTimeout(MoveMonstre2Down, 1750);
+
+				   							DégatLegos.stopPropagation();
+				   						}
+
+				   						else if (PVmonstre1 <= 0)
+						   				{
+						   					PluieLegos.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+				    						ChoixATK.setAttribute('style','z-index: -1');
+
+				    						setTimeout(MoveMonstre2Up, 500);
+
+						    				setTimeout(TourMonstre2, 750);
+
+						    				setTimeout(MoveMonstre2Down, 1000);
+
+						    				DégatLegos.stopPropagation();
+						   				
+						   				}
+				    				}
+
+				    			if (target.id === "Monstre2")
+				     				{	
+				     					PVmonstre2 = PVmonstre2 - 1;
+										PVM2();
+										if (PVmonstre2 > 0)
+						     			{
+											PluieLegos.setAttribute('style','z-index:4 ; top: 36% ; left: 75%');
+				    						ChoixATK.setAttribute('style','z-index: -1');
+
+				    						setTimeout(MoveMonstre2Up, 500);
+
+						    				setTimeout(TourMonstre2, 750);
+
+						    				setTimeout(MoveMonstre2Down, 1000);
+						    					
+						    				setTimeout(MoveMonstre1Up, 1250);
+
+						    				setTimeout(TourMonstre1, 1500);
+
+						    				setTimeout(MoveMonstre1Down, 1750);
+
+				    					   	DégatLegos.stopPropagation();
+				    					}
+
+				    					else if (PVmonstre2 <= 0)
+						   				{
+						   					PluieLegos.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+				    						ChoixATK.setAttribute('style','z-index: -1');
+
+				    						setTimeout(MoveMonstre1Up, 500);
+
+						    				setTimeout(TourMonstre1, 750);
+
+						    				setTimeout(MoveMonstre1Down, 1000);
+
+						    				DégatLegos.stopPropagation();
+						   				
+						   				}
+				    				}
+
+		    				}
+
+						    	else if ((monstres==2) && (PVmonstre1<=0)) 
+						    		{
+						    			PluieLegos.setAttribute('style','z-index:4 ; top: 36% ; left: 75%');
+						    			ChoixATK.setAttribute('style','z-index: -1');
+						     			PVmonstre2 = PVmonstre2 - 1;
+										PVM2();
+
+										if (PVmonstre2 > 0)
+						     			{
+											
+						    				setTimeout(MoveMonstre2Up, 500);
+
+						    				setTimeout(TourMonstre2, 750);
+
+						    				setTimeout(MoveMonstre2Down, 1000);
+
+						    				DégatLegos.stopPropagation();
+						    			}
+
+						    			else if (PVmonstre2 <= 0)
+						   				{
+						   					DégatLegos.stopPropagation();
+						    			}
+
+						    		}
+
+						    	else if ((monstres==2) && (PVmonstre2 <= 0)) 
+						    		{
+						    			ChoixATK.setAttribute('style','z-index: -1');
+						    			PluieLegos.setAttribute('style','z-index:4 ; top: 29% ; left: 65%');
+						     			PVmonstre1 = PVmonstre1 - 1;
+										PVM1();
+
+										if (PVmonstre1 > 0)
+						     			{
+								
+						    				setTimeout(MoveMonstre1Up, 500);
+
+						    				setTimeout(TourMonstre1, 750);
+
+						    				setTimeout(MoveMonstre1Down, 1000);
+
+						    				DégatLegos.stopPropagation();
+						    			}
+
+						    			else if (PVmonstre1 <= 0)
+						   				{
+						   					DégatLegos.stopPropagation();
+						    			}
+
+						    			
+						    					
+						    		}
+
+						    	else if (monstres == 1) 
+						    		{
+						    			ChoixATK.setAttribute('style','z-index: -1');
+						    			PluieLegos.setAttribute('style','z-index:4 ; width :35% ; top: 5% ; left: 50%');
+						     			
+						     			PVmonstre3 = PVmonstre3 - 1;
+										PVM3();
+						    
+										setTimeout(MoveMonstre3Up, 500);
+
+										setTimeout(TourMonstre3, 750);
+
+										setTimeout(MoveMonstre3Down, 1000);
+		
+						    			DégatLegos.stopPropagation();
+						    		}
+
+						    		document.getElementById("buttons").removeEventListener("click",
+												
+									JouerLegos,
+						    			
+									false);
+
+						    		
+						    		setTimeout(CarteVisible, 2000);
+						    		setTimeout(ReloadVisible, 2000);
+									ValidationInvisible();
+
+									setTimeout(Animation, 500);
+					})
+
+					false;
+
+					
+
+				} 
+
+
+    function CarteChocolat()
+    {
+    	if (monstres == 3)
+	  	{
+			if (vie<4)
+			{
+				vie = vie + 1.5;
+				PV();
+
+				setTimeout(MoveMonstre1Up, 500);
+
+				setTimeout(TourMonstre1, 750);
+
+				setTimeout(MoveMonstre1Down, 1000);
+						    					
+				setTimeout(MoveMonstre2Up, 1250);
+
+				setTimeout(TourMonstre2, 1500);
+
+				setTimeout(MoveMonstre2Down, 1750);
+
+				setTimeout(CarteVisible, 2000);
+				setTimeout(ReloadVisible, 2000);
+									
+			}
+
+			else 
+			{
+				CarteVisible();
+				ReloadVisible();
+			}
+		 }
+
+		if ((monstres == 2) && (PVmonstre1 <= 0)) 
+		{
+			if (vie<4)
+			{
+				vie = vie + 1.5;
+				PV();
+
+				setTimeout(MoveMonstre2Up, 500);
+
+				setTimeout(TourMonstre2, 750);
+
+				setTimeout(MoveMonstre2Down, 1000);
+
+				setTimeout(CarteVisible, 2000);
+				setTimeout(ReloadVisible, 2000);
+			}	
+
+			else 
+			{
+				CarteVisible();
+			    ReloadVisible();
+			}
+		}
+
+		
+		if ((monstres == 2) && (PVmonstre2 <= 0)) 
+		{
+			if (vie<4)
+			{
+				vie = vie + 1.5;
+				PV();
+
+				setTimeout(MoveMonstre1Up, 500);
+
+				setTimeout(TourMonstre1, 750);
+
+				setTimeout(MoveMonstre1Down, 1000);
+
+				setTimeout(CarteVisible, 2000);
+				setTimeout(ReloadVisible, 2000);
+			}
+
+			else 
+			{
+				CarteVisible();
+			    ReloadVisible();
+			}	
+		}
+
+		 if (monstres == 1)
+			{
+				if (vie<4)
+				{
+					vie = vie + 1.5;
+					PV();
+
+					setTimeout(MoveMonstre3Up, 500);
+
+					setTimeout(TourMonstre3, 750);
+
+					setTimeout(MoveMonstre3Down, 1000);
+
+					CarteVisible();
+					ReloadVisible();
+				}
+						   		
+				else 
+				{
+					CarteVisible();
+					ReloadVisible();
+				}
+		} 
+
+ 	}
+	  
+    
+
+    function CarteBouclier(Bouclier)
+	{
+		ChoixDEF.setAttribute('style','z-index: 0');
+		document.getElementById("buttons").addEventListener("click", function JouerBouclier(DégatBouclier)
+		    {
+		    	
+				if (monstres==3)
+							{
+				    
+				    			var target = DégatBouclier.target;
+
+				    			 if (target.id === "Monstre1")
+				     				{
+				     				
+				    					ChoixDEF.setAttribute('style','z-index: -1');
+
+				    					setTimeout(MoveMonstre1Up, 500);
+
+						    			setTimeout(audioBouclier, 750);
+
+						    			setTimeout(MoveMonstre1Down, 1250);
+
+						    			setTimeout(MoveMonstre2Up, 1500);
+
+						    			setTimeout(TourMonstre2, 1750);
+
+						    			setTimeout(MoveMonstre2Down, 2000);
+
+				     					DégatBouclier.stopPropagation();
+				    				}
+
+				    			if (target.id === "Monstre2")
+				     				{	
+				     					ChoixDEF.setAttribute('style','z-index: -1');
+
+				    					setTimeout(MoveMonstre2Up, 500);
+
+						    			setTimeout(audioBouclier , 750);
+
+						    			setTimeout(MoveMonstre2Down, 1250);
+
+						    			setTimeout(MoveMonstre1Up, 1500);
+
+						    			setTimeout(TourMonstre1, 1750);
+
+						    			setTimeout(MoveMonstre1Down, 2000);
+
+				     					DégatBouclier.stopPropagation();
+				    				}
+
+		    				}
+
+						    	else if ((monstres==2) && (PVmonstre1<=0)) 
+						    		{
+						    			ChoixDEF.setAttribute('style','z-index: -1');
+
+				    					setTimeout(MoveMonstre2Up, 500);
+
+						    			setTimeout(audioBouclier , 750);
+
+						    			setTimeout(MoveMonstre2Down, 1250);
+
+						    			DégatBouclier.stopPropagation();		
+						    		}
+
+						    	else if ((monstres==2) && (PVmonstre2 <= 0)) 
+						    		{
+						    			ChoixDEF.setAttribute('style','z-index: -1');
+
+				    					setTimeout(MoveMonstre1Up, 500);
+
+						    			setTimeout(audioBouclier, 750);
+
+						    			setTimeout(MoveMonstre1Down, 1250);
+
+						    			DégatBouclier.stopPropagation();
+						    		}
+
+						    	else if (monstres == 1) 
+						    		{
+						    			ChoixDEF.setAttribute('style','z-index: -1');
+						    			DégatBouclier.stopPropagation();
+						       		}
+
+						    		document.getElementById("buttons").removeEventListener("click",
+												
+									JouerBouclier,
+						    			
+									false);
+
+						    		
+						    		setTimeout(CarteVisible, 2000);
+						    		setTimeout(ReloadVisible, 2000);
+									ValidationInvisible();
+					})
+
+					false;
+
+					
+
+				} 
+
+  function CarteInvisible()
+  { 	
+  	document.getElementById("carte1").setAttribute("style", "z-index: -1");
+  	document.getElementById("carte2").setAttribute("style", "z-index: -1");
+  	document.getElementById("carte3").setAttribute("style", "z-index: -1");	
+  }
+
+  function CarteVisible()
+  { 	
+  	document.getElementById("carte1").setAttribute("style", "z-index: 3");
+  	document.getElementById("carte2").setAttribute("style", "z-index: 3");
+  	document.getElementById("carte3").setAttribute("style", "z-index: 3");	
+  }
+
+  function ReloadInvisble()
+  { 	
+  	document.getElementById("Reload1").setAttribute("style", "z-index: -1");
+  	document.getElementById("Reload2").setAttribute("style", "z-index: -1");
+  	document.getElementById("Reload3").setAttribute("style", "z-index: -1");	
+  }
+
+  function ReloadVisible()
+  { 	
+  	document.getElementById("Reload1").setAttribute("style", "z-index: 3");
+  	document.getElementById("Reload2").setAttribute("style", "z-index: 3");
+  	document.getElementById("Reload3").setAttribute("style", "z-index: 3");	
+  }
+
+  function ValidationInvisible()
+  {
+  	Oui.setAttribute('style','z-index: -1');
+	Non.setAttribute('style','z-index: -1');
+  }
+
+  function ValidationVisible()
+  {
+  	Oui.setAttribute('style','z-index: 4');
+	Non.setAttribute('style','z-index: 4');
+  	
+  }
+
+  function Animation() 
+	{
+		CoupEpée.setAttribute('style','z-index : -1');
+		Griffe.setAttribute('style','z-index : -1');
+		PluieLegos.setAttribute('style','z-index : -1');
+	}
+
+ function audioBouclier()
+ 	{
+ 		var audioBouclier = document.getElementById("AudioCoupBouclier");
+ 		audioBouclier.play()
+ 		audioBouclier.volume=0.25; 
+ 		Griffe.setAttribute('style','z-index:3 ; top :56.5% ; left :23%');
+ 		Bouclier.setAttribute('style','z-index : 2 ; top: 56% ; left : 24%');
+ 	}
+
+	</script>
+	
+	</body>
+			
+</html>

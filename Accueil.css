@@ -1,0 +1,64 @@
+#BG
+{
+	height: auto;
+    left: 0;
+    min-height: 100%;
+    min-width: 1024px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    #BG {
+        left: 50%;
+        margin-left: -512px;
+    }
+}
+
+#button
+{
+ z-index: 4;
+ background-color: White;
+ position: absolute;
+ border-radius: 25px;
+ top: 5%;
+ left: 90%;
+
+}
+
+#input1
+{
+ position: absolute;
+ top: 50%;
+ left: 5%;
+ border-radius: 25px;
+ border: solid Purple;
+ background: #D03CD1;
+ font-size: 200%;
+ padding: 0% 8%;
+}
+
+#input2
+{
+ position: absolute;
+ top: 60%;
+ left: 5%;
+ border-radius: 25px;
+ border: solid Purple;
+ background: #D03CD1;
+ font-size: 200%;
+ padding: 0% 8%;
+}
+
+#input3
+{
+ position: absolute;
+ top: 70%;
+ left: 5%;
+ border-radius: 25px;
+ border: solid Purple;
+ background: #D03CD1;
+ font-size: 200%;
+ padding: 0% 8%;
+}

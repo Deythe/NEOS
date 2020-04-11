@@ -1,0 +1,74 @@
+
+
+#Crédits
+{
+	height: 100%;
+    left: 0;
+    min-height: 100%;
+    min-width: 1024px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1 ;
+}
+
+
+#Intro 
+{
+background-color : #00CED1; 
+border-radius: 15px;
+position: absolute;
+left: 35%;	
+top: 15%;
+font-size: 200%;
+}
+
+#Bac 
+{
+background-color : #6DDF5D; 
+border-radius: 15px;
+position: absolute;
+left: 25%;	
+top: 85%;
+font-size: 200%;
+}
+
+#Code 
+{
+background-color : #F9ED3D; 
+border-radius: 15px;
+position: absolute;
+left: 37%;	
+top: 30%;
+font-size: 200%;
+}
+
+#Code2
+{
+background-color : #EE6A6E; 
+border-radius: 15px;
+position: absolute;
+left: 30%;	
+top: 40%;
+font-size: 200%;
+}
+
+#Dessin
+{
+background-color : #C486C7; 
+border-radius: 15px;
+position: absolute;
+left: 35%;	
+top: 50%;
+font-size: 200%;
+}
+
+#Musique 
+{
+background-color : #FBA645; 
+border-radius: 15px;
+position: absolute;
+left: 25%;	
+top: 65%;
+font-size: 200%;
+}

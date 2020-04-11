@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<title>
+			Neos - Accueil
+		</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="Accueil.css">
+	</head>
+	<body id=Body>
+
+		<img src="bg.png" id=BG>
+		
+		<div>
+			<button id="button" onclick="SonOnOff()">
+				<img src="SonsOff.png" width="50px" id="SonOff"> 
+			</button>
+		</div>	
+		
+		<audio id="OST">
+				<source src="Manau.mp3" type="audio/mp3" >
+				Échec, la balise audio n'est pas reconnue par votre navigateur
+			</audio> 
+
+		<div id=bg>
+			<div align="center" id=a1>
+					<a href="Niveau1.html">
+						<button id="input1" type="button">Jouer</button>
+					</a>	
+			</div>
+
+			<div align="center">
+				<a href="Tuto.html">
+						<button id="input2" type="button">Tutoriel</button>
+				</a>	
+			</div>
+
+			<div align="center">
+				<a href="Crédit.html">
+						<button id="input3" type="button">Crédits</button>
+				</a>	
+			</div>
+
+		</div>
+	</body>
+	<script>
+
+		var son = document.getElementById("OST");
+		
+		function SonOnOff()
+	{			
+			if (son.paused)
+				{
+					document.getElementById("SonOff").src="Sons.png";
+					son.play(); 
+				}	
+			else 
+				{
+					document.getElementById("SonOff").src="SonsOff.png";
+ 					son.pause();
+				}			
+	}
+	</script>
+</html>
